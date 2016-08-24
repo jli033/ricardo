@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div>
-		<h1>Index</h1>
+		<h1>jsp/Index</h1>
 	</div>
 </body>
 </html>
