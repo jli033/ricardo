@@ -1,4 +1,5 @@
-<%@page language="java" import="java.lang.*, java.util.*" contentType="text/html; charset=UTF-8"%>
+<%@page language="java" import="java.lang.*, java.util.*"
+	contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -73,8 +74,10 @@
 	</footer>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapJs" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<spring:url value="/resources/core/js/bootstrap.min.js"
+	var="bootstrapJs" />
 <spring:url value="/resources/core/js/main.js" var="coreJs" />
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>
