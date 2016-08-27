@@ -1,12 +1,86 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@page language="java" import="java.lang.*, java.util.*"
+	contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>居酒屋</title>
+
+<spring:url value="/resources/core/css/main.css" var="coreCss" />
+<spring:url value="/resources/core/css/bootstrap.min.css"
+	var="bootstrapCss" />
+<link href="${bootstrapCss}" rel="stylesheet" />
+<link href="${coreCss}" rel="stylesheet" />
 </head>
-<body>
-<h1>欢迎你！！！</h1>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Spring 3 MVC Project</a>
+		</div>
+	</div>
+</nav>
+
+<div class="jumbotron">
+	<div class="container">
+		<h1>${title}</h1>
+		<p>
+			<c:if test="${not empty name}">
+			Hello ${name}
+		</c:if>
+
+			<c:if test="${empty name}">
+			Welcome Welcome!
+		</c:if>
+		</p>
+		<p>
+			<a class="btn btn-primary btn-lg" href="#" role="button">Learn
+				more</a>
+		</p>
+	</div>
+</div>
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-4">
+			<h2>Heading</h2>
+			<p>ABC</p>
+			<p>
+				<a class="btn btn-default" href="#" role="button">View details</a>
+			</p>
+		</div>
+		<div class="col-md-4">
+			<h2>Heading</h2>
+			<p>ABC</p>
+			<p>
+				<a class="btn btn-default" href="#" role="button">View details</a>
+			</p>
+		</div>
+		<div class="col-md-4">
+			<h2>Heading</h2>
+			<p>ABC</p>
+			<p>
+				<a class="btn btn-default" href="#" role="button">View details</a>
+			</p>
+		</div>
+	</div>
+
+
+	<hr>
+	<footer>
+		<p>&copy; Mkyong.com 2015</p>
+	</footer>
+</div>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<spring:url value="/resources/core/js/bootstrap.min.js"
+	var="bootstrapJs" />
+<spring:url value="/resources/core/js/main.js" var="coreJs" />
+<script src="${coreJs}"></script>
+<script src="${bootstrapJs}"></script>
+
 </body>
 </html>

@@ -19,19 +19,22 @@
 </head>
 <body>
     <div class="container">
-      <form class="form-signin" action="${root}home/login" method="post">
+      <form id="frmIndex" class="form-signin" action="${root}home/login" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" name="loginID" class="form-control" placeholder="Email address" required autofocus>
+        <input type="text" id="txtLogin" name="loginId" class="form-control" placeholder="Login ID" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <input type="password" id="txtPassword" name="password" class="form-control" placeholder="Password" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button id="btnLogin" class="btn btn-lg btn-primary btn-block" type="button" onclick="btnLogin_click();">Sign in</button>
       </form>
     </div> <!-- /container -->
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="<c:url value="/resources/core/js/index.js"/>"></script>
 </body>
 </html>

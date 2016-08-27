@@ -1,15 +1,25 @@
 package cn.springmvc.model;
 
+import java.io.Serializable;
 import java.sql.Date;
+
+import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * 用户表
- * @author fenghaifeng
- * 2014年2月11日
+ * @author 
+ * 2016年08月27日
  */
-public class User {
-
+public class User implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
+	@JsonProperty("loginId")
+	private String loginId;
+	@JsonProperty("password")
+	private String password;
 	private int device_type;
 	private String device_num;
 	private Date create_time;
@@ -21,6 +31,18 @@ public class User {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getLoginId() {
+		return loginId;
+	}
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public int getDevice_type() {
 		return device_type;

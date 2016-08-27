@@ -19,4 +19,8 @@ public class UserServiceImpl implements UserService{
 		return userDAO.insertUser(user);
 	}
 
+	public User getUserFromLogin(User user) {
+		// TODO Auto-generated method stub
+		return userDAO.selectUserFromModel(user);
+	}
 }
