@@ -30,9 +30,11 @@ function btnLogin_click(){
 		contentType : "application/json",
 		success:function(rdata){
 			if(rdata.result=="OK"){
-				location.href="home/";
+				location.href="home/userHome";
 			}else{
-				
+				$("#lblErrorMessage").html("用户名或密码有误。");
+				$("#lblErrorMessage").css("display","inline");
+				$("#txtLoginId").focus();
 			}
 		},
 	    error: function(XMLHttpRequest, textStatus, errorThrown){  

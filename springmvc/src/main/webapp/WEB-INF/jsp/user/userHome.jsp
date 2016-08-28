@@ -5,15 +5,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>居酒屋</title>
-
-<spring:url value="/resources/core/css/main.css" var="coreCss" />
+<title>李嘉圖會員管理系統</title>
+<spring:url value="/resources/core/css/user/userHome.css" var="currentCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css"
 	var="bootstrapCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
-<link href="${coreCss}" rel="stylesheet" />
+<link href="${currentCss}" rel="stylesheet" />
 </head>
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -21,56 +19,35 @@
 		</div>
 	</div>
 </nav>
-
 <div class="jumbotron">
 	<div class="container">
-		<h1>${title}</h1>
 		<p>
-			<c:if test="${not empty name}">
-			Hello ${name}
-		</c:if>
-
-			<c:if test="${empty name}">
-			Welcome Welcome!
-		</c:if>
-		</p>
-		<p>
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn
-				more</a>
+			${user.userName}您好
 		</p>
 	</div>
 </div>
 
 <div class="container">
-
-	<div class="row">
-		<div class="col-md-4">
-			<h2>Heading</h2>
-			<p>ABC</p>
-			<p>
-				<a class="btn btn-default" href="#" role="button">View details</a>
-			</p>
-		</div>
-		<div class="col-md-4">
-			<h2>Heading</h2>
-			<p>ABC</p>
-			<p>
-				<a class="btn btn-default" href="#" role="button">View details</a>
-			</p>
-		</div>
-		<div class="col-md-4">
-			<h2>Heading</h2>
-			<p>ABC</p>
-			<p>
-				<a class="btn btn-default" href="#" role="button">View details</a>
-			</p>
-		</div>
-	</div>
-
-
-	<hr>
+	<table class="table table-sm">
+	  <thead>
+	    <tr>
+	      <th>#</th>
+	      <th>消费时间</th>
+	      <th>消费金额</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<c:forEach var="item" items="${costList}" varStatus="status">
+		    <tr>
+		      <th scope="row">1</th>
+		      <td>${item.costDateTime}</td>
+		      <td>${item.cost}</td>
+		    </tr>
+	    </c:forEach>
+	    </tbody>
+	 </table>
 	<footer>
-		<p>&copy; Mkyong.com 2015</p>
+		<p>&copy; Ricardo.com 2015</p>
 	</footer>
 </div>
 
@@ -78,8 +55,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <spring:url value="/resources/core/js/bootstrap.min.js"
 	var="bootstrapJs" />
-<spring:url value="/resources/core/js/main.js" var="coreJs" />
-<script src="${coreJs}"></script>
+<spring:url value="/resources/core/js/user/userHome.js" var="currentJs" />
+<script src="${currentJs}"></script>
 <script src="${bootstrapJs}"></script>
 
 </body>
