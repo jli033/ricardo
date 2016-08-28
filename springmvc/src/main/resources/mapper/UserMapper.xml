@@ -57,6 +57,25 @@
              select * from users_name
          </select> -->
          
-         
-
+         <!-- ////////////////////////////////// -->
+         <sql id="user">
+         	userId,
+         	userName,
+         	loginId,
+         	password
+         </sql>
+         <select id="selectUserFromModel" parameterType="User" resultType="User">
+         	select * 
+         	from m_user 
+         	where 1=1
+         	<if test="userId!=null and userId!=''">
+         		and userId=#{userId}
+         	</if>
+         	<if test="loginId!=null and loginId!=''">
+         		and loginId=#{loginId}
+         	</if>
+         	<if test="password!=null and password!=''">
+         		and password=#{password}
+         	</if>
+         </select>
 </mapper>

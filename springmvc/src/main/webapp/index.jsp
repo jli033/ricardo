@@ -21,15 +21,16 @@
     <div class="container">
       <form id="frmIndex" class="form-signin" action="${root}home/login" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="text" id="txtLogin" name="loginId" class="form-control" placeholder="Login ID" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
+        <label for="txtLoginId" class="sr-only">Email address</label>
+        <input type="text" id="txtLoginId" name="loginId" class="form-control" placeholder="Login ID" required autofocus>
+        <label for="txtPassword" class="sr-only">Password</label>
         <input type="password" id="txtPassword" name="password" class="form-control" placeholder="Password" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
+        <span id="lblErrorMessage" style="display:none;color:red;"></span>
         <button id="btnLogin" class="btn btn-lg btn-primary btn-block" type="button" onclick="btnLogin_click();">Sign in</button>
       </form>
     </div> <!-- /container -->

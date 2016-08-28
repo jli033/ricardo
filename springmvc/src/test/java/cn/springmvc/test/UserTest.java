@@ -25,8 +25,7 @@ private UserService userService;
 	@Test
 	public void addUser(){
 		User user = new User();
-		user.setNickname("你好");
-		user.setState(2);
+		user.setUserName("你好");
 		System.out.println(userService.insertUser(user));
 	}
 }
