@@ -7,7 +7,8 @@ public class Cost {
 	private int costId;
 	private int userId;
 	private BigDecimal cost;
-	private Date costDateTime;
+	private String costDateTime;
+	private int createStaffId;
 	public int getCostId() {
 		return costId;
 	}
@@ -26,10 +27,16 @@ public class Cost {
 	public void setCost(BigDecimal cost) {
 		this.cost = cost;
 	}
-	public Date getCostDateTime() {
+	public String getCostDateTime() {
 		return costDateTime;
 	}
-	public void setCostDateTime(Date costDateTime) {
+	public void setCostDateTime(String costDateTime) {
 		this.costDateTime = costDateTime;
+	}
+	public int getCreateStaffId() {
+		return createStaffId;
+	}
+	public void setCreateStaffId(int createStaffId) {
+		this.createStaffId = createStaffId;
 	}
 }

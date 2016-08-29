@@ -17,8 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.springmvc.common.SessionKey;
 import cn.springmvc.dao.CostDAO;
 import cn.springmvc.model.Cost;
+import cn.springmvc.model.Recharge;
 import cn.springmvc.model.User;
 import cn.springmvc.service.CostService;
+import cn.springmvc.service.RechargeService;
 import cn.springmvc.service.UserService;
 
 @Controller
@@ -27,6 +29,8 @@ public class HomeController {
 	UserService service;
 	@Autowired
 	CostService costService;
+	@Autowired
+	RechargeService rechargeService;
 	
 	@ResponseBody
 	@RequestMapping(value="/home/login",method=RequestMethod.POST)
@@ -58,11 +62,14 @@ public class HomeController {
 	public ModelAndView index(HttpSession session) {
 		ModelAndView result = new ModelAndView();
 		User loginUser = (User)session.getAttribute(SessionKey.LoginUser);
-		result.setViewName("/user/userHome");
-		result.addObject("user", loginUser);
 		List<Cost> lstCost 
 		= costService.getCostListFromUserId(loginUser.getUserId());
+		List<Recharge> lstRecharge
+		= rechargeService.getRechargeListFromUserId(loginUser.getUserId());
+		result.setViewName("/user/userHome");
+		result.addObject("user", loginUser);
 		result.addObject("costList", lstCost);
+		result.addObject("rechargeList",lstRecharge);
 		return result;
 	}
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -12,10 +12,16 @@
 	</sql>
 	<resultMap id="costResultMap" type="Cost">
 		<id property="userId" column="userId"></id>
+		<result column="cost" property="cost"/>
+		<result column="costDateTime" property="costDateTime"/>
+		<result column="createStaffId" property="createStaffId"/>
 	</resultMap>
 	<select id="selectUserCostList" parameterType="int" resultMap="costResultMap">
-		select *
+		select userId
+			,cost
+			,DATE_FORMAT(costDateTime,'%Y年%m月%d日 %H时%i分%S秒') AS costDateTime
+			,createStaffId
 		from T_Cost
-		where T_Cost.UserId = {userId}
+		where T_Cost.UserId = #{userId}
 	</select>
 </mapper>

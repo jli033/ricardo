@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>李嘉圖會員管理系統</title>
+<title>李嘉图会员管理系统</title>
 <spring:url value="/resources/core/css/user/userHome.css" var="currentCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css"
 	var="bootstrapCss" />
@@ -28,7 +28,20 @@
 </div>
 
 <div class="container">
-	<table class="table table-sm">
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default in">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        	消费记录
+        </a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body">
+      <!-- //消费记录列表////////////////////////////// -->
+      <table class="table table-sm">
 	  <thead>
 	    <tr>
 	      <th>#</th>
@@ -46,6 +59,44 @@
 	    </c:forEach>
 	    </tbody>
 	 </table>
+      <!-- //消费记录列表///////////////////////////// -->
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        	充值记录
+        </a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+	      <!-- //充值记录列表////////////////////////////// -->
+	      <table class="table table-sm">
+		  <thead>
+		    <tr>
+		      <th>#</th>
+		      <th>充值时间</th>
+		      <th>充值金额</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<c:forEach var="item" items="${rechargeList}" varStatus="status">
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>${item.rechargeDateTime}</td>
+			      <td>${item.rechargeMoney}</td>
+			    </tr>
+		    </c:forEach>
+		    </tbody>
+		 </table>
+	      <!-- //充值记录列表///////////////////////////// -->
+      </div>
+    </div>
+  </div>
+</div>
 	<footer>
 		<p>&copy; Ricardo.com 2015</p>
 	</footer>
