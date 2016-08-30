@@ -19,16 +19,14 @@
 		</div>
 	</div>
 </nav>
-<div class="jumbotron">
-	<div class="container">
-		<p>
-			${user.userName}您好
-		</p>
-	</div>
+
+<div class="container" style="margin-top:30px;">
+	<p>
+		${user.userName}您好，您的余额为：${user.balance } 元
+	</p>
 </div>
 
 <div class="container">
-
 <div class="panel-group" id="accordion">
   <div class="panel panel-default in">
     <div class="panel-heading">
@@ -52,7 +50,7 @@
 	  <tbody>
 	  	<c:forEach var="item" items="${costList}" varStatus="status">
 		    <tr>
-		      <th scope="row">1</th>
+		      <th scope="row">${status.index + 1}</th>
 		      <td>${item.costDateTime}</td>
 		      <td>${item.cost}</td>
 		    </tr>
@@ -85,7 +83,7 @@
 		  <tbody>
 		  	<c:forEach var="item" items="${rechargeList}" varStatus="status">
 			    <tr>
-			      <th scope="row">1</th>
+			      <th scope="row">${status.index + 1}</th>
 			      <td>${item.rechargeDateTime}</td>
 			      <td>${item.rechargeMoney}</td>
 			    </tr>
@@ -98,7 +96,7 @@
   </div>
 </div>
 	<footer>
-		<p>&copy; Ricardo.com 2015</p>
+		<p>&copy;Copy Right Ricardo.com 2016 </p>
 	</footer>
 </div>
 

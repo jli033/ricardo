@@ -65,7 +65,15 @@
          	password
          </sql>
          <select id="selectUserFromModel" parameterType="User" resultType="User">
-         	select * 
+         	select userId,
+	         	userName,
+	         	loginId,
+	         	password,
+	         	(
+					(select sum(RechargeMoney) from t_recharge where t_recharge.UserId = m_user.UserId)
+			        -
+					(select sum(cost) from t_cost where t_cost.UserId = m_user.UserId) 
+			     ) as balance
          	from m_user 
          	where 1=1
          	<if test="userId!=null and userId!=''">
