@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.springmvc.common.SessionKey;
-import cn.springmvc.dao.CostDAO;
 import cn.springmvc.model.Cost;
 import cn.springmvc.model.Recharge;
 import cn.springmvc.model.User;
@@ -31,10 +30,10 @@ public class HomeController {
 	CostService costService;
 	@Autowired
 	RechargeService rechargeService;
-	
+
 	@ResponseBody
-	@RequestMapping(value="/home/login",method=RequestMethod.POST)
-	
+	@RequestMapping(value="/home/login.do",method=RequestMethod.POST)
+
 	//パラメータはHttpSerletRequestで、取得できない
 	//@RequestParam("loginId")で、取得できます。
 	//------------------
@@ -58,11 +57,11 @@ public class HomeController {
 			return result;
 		}
 	}
-	@RequestMapping("/home/userHome")
+	@RequestMapping("/home/userHome.do")
 	public ModelAndView index(HttpSession session) {
 		ModelAndView result = new ModelAndView();
 		User loginUser = (User)session.getAttribute(SessionKey.LoginUser);
-		List<Cost> lstCost 
+		List<Cost> lstCost
 		= costService.getCostListFromUserId(loginUser.getUserId());
 		List<Recharge> lstRecharge
 		= rechargeService.getRechargeListFromUserId(loginUser.getUserId());

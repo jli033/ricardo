@@ -1,6 +1,7 @@
 package cn.springmvc.common;
 
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import cn.springmvc.model.User;
 
 public class SecurityServlet extends HttpServlet implements Filter {
 	private static final long serialVersionUID = 1L;
@@ -23,10 +26,13 @@ public class SecurityServlet extends HttpServlet implements Filter {
 		String usercode = (String) request.getRemoteUser();// 登录人
 		String user_role = (String) session.getAttribute("role");// 登录人角色
 		String url = request.getRequestURI();
-		if (usercode == null || "".equals(usercode) || user_role == null || "".equals(user_role)) {
+		String servletPath = request.getServletPath();
+		User loginUser = (User)session.getAttribute("LoginUser");
+		if(loginUser==null){
 			// 判断获取的路径不为空且不是访问登录页面或执行登录操作时跳转
-			if (url != null && !url.equals("") && (url.indexOf("Login") < 0 && url.indexOf("login") < 0)) {
-				response.sendRedirect(request.getContextPath() + "/login.jsp");
+			if (!(url.equals(request.getContextPath()+"/") && servletPath.equals("/index.jsp"))
+					&& !servletPath.equals("/home/login.do")) {
+				response.sendRedirect(request.getContextPath());
 				return;
 			}
 		}

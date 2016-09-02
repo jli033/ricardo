@@ -11,17 +11,17 @@ function btnLogin_click(){
 		$("#txtLoginId").focus();
 		return false;
 	}
-	
+
 	if(password==""){
 		$("#lblErrorMessage").html("请输入密码。");
 		$("#lblErrorMessage").css("display","inline");
 		$("#txtPassword").focus();
 		return false;
 	}
-	
+
 	//$('form').serialize() URL文字列を生成するだけ 、JSON objectじゃない
 	var userjson = $('#frmIndex').serializeObject();
-	var url ='home/login';
+	var url ='home/login.do';
 	$.ajax({
 		url:url,
 		type:'POST',
@@ -30,15 +30,15 @@ function btnLogin_click(){
 		contentType : "application/json",
 		success:function(rdata){
 			if(rdata.result=="OK"){
-				location.href="home/userHome";
+				location.href="home/userHome.do";
 			}else{
 				$("#lblErrorMessage").html("用户名或密码有误。");
 				$("#lblErrorMessage").css("display","inline");
 				$("#txtLoginId").focus();
 			}
 		},
-	    error: function(XMLHttpRequest, textStatus, errorThrown){  
-	        alert(XMLHttpRequest.readyState + XMLHttpRequest.status + XMLHttpRequest.responseText); 
+	    error: function(XMLHttpRequest, textStatus, errorThrown){
+	        alert(XMLHttpRequest.readyState + XMLHttpRequest.status + XMLHttpRequest.responseText);
 	    }
 	});
 }
