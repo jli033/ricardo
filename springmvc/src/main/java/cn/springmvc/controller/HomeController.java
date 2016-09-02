@@ -31,6 +31,11 @@ public class HomeController {
 	@Autowired
 	RechargeService rechargeService;
 
+	@RequestMapping(value="/home/userLogin.do",method=RequestMethod.GET)
+	public String userLogin(){
+		return "/user/userLogin";
+	}
+
 	@ResponseBody
 	@RequestMapping(value="/home/login.do",method=RequestMethod.POST)
 
