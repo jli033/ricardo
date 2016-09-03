@@ -1,8 +1,7 @@
 package cn.springmvc.model;
-
 import java.math.BigDecimal;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+//import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * 用户表
@@ -12,9 +11,9 @@ import org.codehaus.jackson.annotate.JsonProperty;
 public class User{
 	private int userId;
 	private String userName;
-	@JsonProperty("loginId")
+	//@JsonProperty("loginId")
 	private String loginId;
-	@JsonProperty("password")
+	//@JsonProperty("password")
 	private String password;
 	private BigDecimal balance;
 	public String getLoginId() {
