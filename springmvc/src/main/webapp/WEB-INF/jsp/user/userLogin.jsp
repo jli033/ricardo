@@ -11,16 +11,16 @@
 	<meta name="author" content="">
 	<!-- Le styles -->
 	<c:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
-	<c:url value="/resources/core/css/index.css" var="index" />
+	<c:url value="/resources/core/css/user/userLogin.css" var="userLogin" />
 	<link href="${bootstrapCss}" rel="stylesheet" />
-	<link href="${index}" rel="stylesheet" />
+	<link href="${userLogin}" rel="stylesheet" />
 	
 	<c:url value="/" var="root"/>
 </head>
 <body>
     <div class="container">
-      <form id="frmIndex" class="form-signin" action="${root}home/login" method="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
+      <form id="frmIndex" class="form-signin" action="${root}/user/home/login.do" method="post">
+        <h2 class="form-signin-heading">用户登录</h2>
         <label for="txtLoginId" class="sr-only">Email address</label>
         <input type="text" id="txtLoginId" name="loginId" class="form-control" placeholder="Login ID" required autofocus>
         <label for="txtPassword" class="sr-only">Password</label>
@@ -36,6 +36,6 @@
     </div> <!-- /container -->
     <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="<c:url value="/resources/core/js/index.js"/>"></script>
+    <script src="<c:url value="/resources/core/js/user/userLogin.js"/>"></script>
 </body>
 </html>

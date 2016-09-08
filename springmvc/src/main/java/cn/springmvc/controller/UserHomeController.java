@@ -23,7 +23,7 @@ import cn.springmvc.service.RechargeService;
 import cn.springmvc.service.UserService;
 
 @Controller
-public class HomeController {
+public class UserHomeController {
 	@Autowired
 	UserService service;
 	@Autowired
@@ -31,13 +31,13 @@ public class HomeController {
 	@Autowired
 	RechargeService rechargeService;
 
-	@RequestMapping(value="/home/userLogin.do",method=RequestMethod.GET)
+	@RequestMapping(value="user/home/Login.do",method=RequestMethod.GET)
 	public String userLogin(){
 		return "/user/userLogin";
 	}
 
 	@ResponseBody
-	@RequestMapping(value="/home/login.do",method=RequestMethod.POST)
+	@RequestMapping(value="user/home/Logining.do",method=RequestMethod.POST)
 
 	//パラメータはHttpSerletRequestで、取得できない
 	//@RequestParam("loginId")で、取得できます。
@@ -62,7 +62,7 @@ public class HomeController {
 			return result;
 		}
 	}
-	@RequestMapping("/home/userHome.do")
+	@RequestMapping("user/home/userHome.do")
 	public ModelAndView index(HttpSession session) {
 		ModelAndView result = new ModelAndView();
 		User loginUser = (User)session.getAttribute(SessionKey.LoginUser);

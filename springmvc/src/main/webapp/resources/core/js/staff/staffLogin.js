@@ -1,5 +1,5 @@
 /**
- * @auto lijun
+ * @auto ricardo
  * welcome index view
  */
 function btnLogin_click(){
@@ -20,17 +20,17 @@ function btnLogin_click(){
 	}
 
 	//$('form').serialize() URL文字列を生成するだけ 、JSON objectじゃない
-	var userjson = $('#frmIndex').serializeObject();
-	var url ='home/login.do';
+	var staffjson = $('#frmIndex').serializeObject();
+	var url ='home/staffLogining.do';
 	$.ajax({
 		url:url,
 		type:'POST',
 		dataType:'json',
-		data:JSON.stringify(userjson),
+		data:JSON.stringify(staffjson),
 		contentType : "application/json",
 		success:function(rdata){
 			if(rdata.result=="OK"){
-				location.href="home/userHome.do";
+				location.href="home/staffHome.do";
 			}else{
 				$("#lblErrorMessage").html("用户名或密码有误。");
 				$("#lblErrorMessage").css("display","inline");
