@@ -38,7 +38,6 @@ public class UserHomeController {
 
 	@ResponseBody
 	@RequestMapping(value="user/home/Logining.do",method=RequestMethod.POST)
-
 	//パラメータはHttpSerletRequestで、取得できない
 	//@RequestParam("loginId")で、取得できます。
 	//------------------

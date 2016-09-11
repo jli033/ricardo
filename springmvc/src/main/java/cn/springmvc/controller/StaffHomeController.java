@@ -15,16 +15,15 @@ import cn.springmvc.model.Staff;
 
 @Controller
 public class StaffHomeController {
-	@RequestMapping(value="staff/home/staffLogin.do",method=RequestMethod.GET)
+	@RequestMapping(value="staff/home/Login.do",method=RequestMethod.GET)
 	public String staffLogin(){
 		return "/staff/staffLogin";
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="staff/home/staffLogining.do",method=RequestMethod.POST)
+	@RequestMapping(value="staff/home/Logining.do",method=RequestMethod.POST)
 	public Map<String, String> staffLogin(@RequestBody Staff staff,HttpSession session){
 		Map<String, String> result = new HashMap<String, String>();
-		
 		return result;
 	}
 }
